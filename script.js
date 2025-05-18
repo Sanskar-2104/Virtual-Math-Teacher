@@ -91,7 +91,6 @@
 
 
 
-
 let innerUploadImage = document.querySelector(".inner-upload-image");
 let input = innerUploadImage.querySelector("input");
 let image = document.querySelector("#image");
@@ -99,6 +98,8 @@ let loading = document.querySelector("#loading");
 let btn = document.querySelector("button");
 let output = document.querySelector(".output");
 let text = document.querySelector("#text");
+let uploadText = document.querySelector(".upload-text"); // NEW: Get the "Upload Image" text
+let icon = document.querySelector("#icon"); // NEW: Get the plus icon
 
 input.addEventListener("change", () => {
     const file = input.files[0];
@@ -112,7 +113,12 @@ input.addEventListener("change", () => {
         image.src = e.target.result;
         image.style.display = "block";
         output.style.display = "none"; // Hide output until processed
-        console.log("Image uploaded successfully!"); // Debugging log
+
+        // NEW: Hide upload text and icon
+        if (uploadText) uploadText.style.display = "none";
+        if (icon) icon.style.display = "none";
+
+        console.log("Image uploaded successfully!");
     };
     reader.readAsDataURL(file);
 });
@@ -135,7 +141,7 @@ async function extractMathFromImage() {
     try {
         let { data: { text: extractedText } } = await Tesseract.recognize(image.src, 'eng');
 
-        console.log("Extracted Text:", extractedText); // Debugging output
+        console.log("Extracted Text:", extractedText);
 
         if (extractedText.trim() === "") {
             text.innerHTML = "No text detected!";
