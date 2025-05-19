@@ -113,6 +113,7 @@ body {
     gap: 30px;
     padding: 40px 20px;
     color: #e0e0e0;
+    overflow: hidden;
 }
 
 h1 {
@@ -228,4 +229,49 @@ button:hover {
     margin-top: 30px;
     filter: drop-shadow(0 0 10px #00e0ff);
     display: none;
+}
+
+.footer {
+    width: 100vw;
+    background: #1a1f2b;
+    border-top: 2px solid #00e0ff;
+    padding: 40px 20px;
+    color: #ccc;
+    box-shadow: 0 -5px 15px rgba(0, 224, 255, 0.1);
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1 1 250px;
+}
+
+.footer h2, .footer h3 {
+    color: #00e0ff;
+    margin-bottom: 15px;
+}
+
+.footer p, .footer a, .footer li {
+    font-size: 14px;
+    color: #aaa;
+    text-decoration: none;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #00e0ff;
+    text-shadow: 0 0 5px #00e0ff;
+}
+
+.footer ul {
+    padding: 0;
 }
